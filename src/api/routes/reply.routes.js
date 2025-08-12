@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const reply_controller_1 = require("../controllers/reply.controller");
+const replyRoutes = (0, express_1.Router)();
+replyRoutes.post('/', reply_controller_1.createReplyController);
+replyRoutes.get('/message/:messageId', reply_controller_1.getRepliesController);
+replyRoutes.get('/:id', reply_controller_1.getReplyController);
+replyRoutes.delete('/:id', reply_controller_1.deleteReplyController);
+exports.default = replyRoutes;

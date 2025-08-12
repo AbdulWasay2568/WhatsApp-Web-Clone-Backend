@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const call_controller_1 = require("../controllers/call.controller");
+const callRoutes = (0, express_1.Router)();
+callRoutes.get('/', call_controller_1.fetchCallsController);
+callRoutes.post('/', call_controller_1.createCallController);
+callRoutes.get('/:id', call_controller_1.readCallController);
+callRoutes.put('/:id', call_controller_1.updateCallController);
+callRoutes.delete('/:id', call_controller_1.deleteCallController);
+exports.default = callRoutes;

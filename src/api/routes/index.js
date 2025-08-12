@@ -1,0 +1,22 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.uploadRouter = exports.chatRouter = exports.authRouter = exports.reactionRouter = exports.replyRouter = exports.userRouter = exports.callRouter = exports.messageRouter = void 0;
+var message_routes_1 = require("./message.routes");
+Object.defineProperty(exports, "messageRouter", { enumerable: true, get: function () { return __importDefault(message_routes_1).default; } });
+var call_routes_1 = require("./call.routes");
+Object.defineProperty(exports, "callRouter", { enumerable: true, get: function () { return __importDefault(call_routes_1).default; } });
+var user_routes_1 = require("./user.routes");
+Object.defineProperty(exports, "userRouter", { enumerable: true, get: function () { return __importDefault(user_routes_1).default; } });
+var reply_routes_1 = require("./reply.routes");
+Object.defineProperty(exports, "replyRouter", { enumerable: true, get: function () { return __importDefault(reply_routes_1).default; } });
+var reaction_routes_1 = require("./reaction.routes");
+Object.defineProperty(exports, "reactionRouter", { enumerable: true, get: function () { return __importDefault(reaction_routes_1).default; } });
+var auth_routes_1 = require("./auth.routes");
+Object.defineProperty(exports, "authRouter", { enumerable: true, get: function () { return __importDefault(auth_routes_1).default; } });
+var chat_routes_1 = require("./chat.routes");
+Object.defineProperty(exports, "chatRouter", { enumerable: true, get: function () { return __importDefault(chat_routes_1).default; } });
+var upload_routes_1 = require("./upload.routes");
+Object.defineProperty(exports, "uploadRouter", { enumerable: true, get: function () { return __importDefault(upload_routes_1).default; } });
