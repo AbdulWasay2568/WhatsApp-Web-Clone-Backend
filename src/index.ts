@@ -61,6 +61,16 @@ app.use('/chats', chatRouter);
 app.use('/upload', uploadRouter);
 
 const PORT = process.env.PORT || 3000;
-httpServer.listen(PORT, () => {
-  console.log(`🚀 Server running at http://localhost:${PORT}`);
-});
+
+// For Vercel serverless functions, we need to export the app
+if (process.env.NODE_ENV === 'production') {
+  // In production (Vercel), don't start the server
+  console.log('🚀 Server configured for Vercel deployment');
+} else {
+  // In development, start the server
+  httpServer.listen(PORT, () => {
+    console.log(`🚀 Server running at http://localhost:${PORT}`);
+  });
+}
+
+export default app;
