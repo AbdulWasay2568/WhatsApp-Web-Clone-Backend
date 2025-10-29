@@ -8,8 +8,9 @@
   },
   "scripts": {
     "dev": "echo ⚙️ Configuring Environment for development... && nodemon",
-    "start": "echo 🚀 Starting Server... && cross-env NODE_ENV=production node --experimental-specifier-resolution=node ./build/index.js",
-    "build": "echo 🛠️ Building... && rimraf ./build && tsc && tsc-alias",
+    "start": "echo 🚀 Starting Server... && node dist/index.js",
+    "build": "echo 🛠️ Building... && rimraf ./dist && tsc",
+    "vercel-build": "echo 🛠️ Building for Vercel... && npm run build && prisma generate",
     "deploy": "echo ✨ Starting Deployment... && vercel && echo ✅ Deployment Completed",
     "postinstall": "echo 📦 Generating Prisma... && prisma generate"
   },
@@ -22,17 +23,15 @@
     "bcrypt": "^6.0.0",
     "cloudinary": "^2.7.0",
     "cors": "^2.8.5",
-    "cross-env": "^10.0.0",
+    "cross-env": "^10.1.0",
     "dotenv": "^17.2.0",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
     "multer": "^2.0.2",
-    "nodemon": "^3.1.10",
     "rimraf": "^6.0.1",
     "sharp": "^0.34.2",
     "socket.io": "^4.8.1",
     "streamifier": "^0.1.1",
-    "typescript": "^5.8.3",
     "vercel": "^44.7.3"
   },
   "devDependencies": {
@@ -43,6 +42,7 @@
     "@types/multer": "^2.0.0",
     "@types/node": "^22.15.29",
     "@types/streamifier": "^0.1.2",
+    "nodemon": "^3.1.10",
     "prisma": "^6.13.0",
     "prisma-erd-generator": "^2.0.4",
     "ts-node": "^10.9.2",
@@ -50,6 +50,7 @@
     "tsc-alias": "^1.8.16",
     "tsconfig-paths": "^4.2.0",
     "tsx": "^4.20.3",
+    "typescript": "^5.8.3",
     "typescript-transform-paths": "^3.5.5"
   }
 }

@@ -139,19 +139,21 @@ export const handleSocketConnection = (io: Server) => {
 
     socket.on("call:request", ({ from, to, type, offer }) => {
       console.log(`📞 Call request from ${from} to ${to}`);
-      io.to(to).emit("call:incoming", { from, type, offer });
+      io.to(to.toString()).emit("call:incoming", { from, type, offer });
     });
 
     socket.on("call:answer", ({ to, answer }) => {
-      io.to(to).emit("call:answer", { answer });
+      console.log(`✅ Call answer from ${to}`);
+      io.to(to.toString()).emit("call:answer", { answer });
     });
 
     socket.on("call:ice-candidate", ({ to, candidate }) => {
-      io.to(to).emit("call:ice-candidate", { candidate });
+      io.to(to.toString()).emit("call:ice-candidate", { candidate });
     });
 
     socket.on("call:end", ({ to }) => {
-      io.to(to).emit("call:ended");
+      console.log(`🔚 Call ended to ${to}`);
+      io.to(to.toString()).emit("call:ended");
     });
 
 
